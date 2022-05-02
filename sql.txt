@@ -1,0 +1,1 @@
+CREATE TABLE `damn`.`authorized_users` ( `user-id` INT NOT NULL AUTO_INCREMENT , `user-username` VARCHAR NOT NULL , `user-email` VARCHAR NOT NULL , `user-password` VARCHAR NOT NULL , `verification` INT NOT NULL , `verification-token` VARCHAR NOT NULL , `password-reset` INT NOT NULL , `password-reset-token` VARCHAR NOT NULL , PRIMARY KEY (`user-id`)) ENGINE = InnoDB; 

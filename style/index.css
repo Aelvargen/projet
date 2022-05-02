@@ -1,0 +1,28 @@
+
+.f-box {
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+input[type=submit] {
+    border-radius: 10px;
+    display: block;
+    position: relative;
+    width: max-content;
+    height: 35px;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    text-decoration: none;
+    float: left;
+    background: #528fec;
+    transition: background 0.3s;
+    padding: 0 10.5em;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    background: #417edb;
+}
