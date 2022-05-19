@@ -54,33 +54,18 @@ if (isset($_POST['f-pwd_lost'])) {
 <?php include('anchors/header.php'); ?>
 
 <style>
-    .f-box {
-        border-radius: 10px;
-        border: 1px solid #333;
-    }
-
-    input[type=submit] {
-        border-radius: 10px;
-        display: block;
-        position: relative;
-        width: max-content;
-        height: 35px;
-        text-align: center;
-        color: #fff;
-        line-height: 35px;
-        text-decoration: none;
-        float: left;
-        background: #528fec;
-        transition: background 0.3s;
-        padding: 0 5em;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    input[type=submit]:hover {
-        background: #417edb;
-    }
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
 </style>
 
 <div id="wrapper">
@@ -89,20 +74,22 @@ if (isset($_POST['f-pwd_lost'])) {
 </div>
 
 <?php if (!isset($sent)) { ?>
-    <form method="POST" action="" class="box">
-        <div class="d-auto-hw abs-center">
+    <div class="form">
+        <form method="POST" action="" class="box">
+            <div class="d-auto-hw abs-center">
 
-            <input type="email" spellcheck="false" name="email" id="email" autocomplete="off" class="f-txt f-box" spellcheck="false" autocomplete="off" placeholder="Email" value="<?php if (isset($mail)) {echo $mail;} ?>" required /><br />
-            <?php
-            if (isset($error)) {
-                echo '<p style="color: #780a02; font-size: 14px;">' . $error . '</p>';
-            }
-            ?>
+                <input type="email" spellcheck="false" name="email" id="email" autocomplete="off" class="f-txt f-box" spellcheck="false" autocomplete="off" placeholder="Email" value="<?php if (isset($mail)) {echo $mail;} ?>" required /><br />
+                <?php
+                if (isset($error)) {
+                    echo '<p style="color: #780a02; font-size: 14px;">' . $error . '</p>';
+                }
+                ?>
 
-            <input type="submit" name="f-pwd_lost" value="Obtenir un nouveau mot de passe" />
-        </div>
+                <input type="submit" name="f-pwd_lost" value="Obtenir un nouveau mot de passe" />
+            </div>
 
-    </form>
+        </form>
+    </div>
 
 <?php } else { ?>
     <div class="box">

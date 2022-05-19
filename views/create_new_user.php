@@ -51,16 +51,16 @@ if (isset($_POST['f-signup'])) {
                     }
                    
                 } else {
-                    $error = "Adresse mail déjà utilisée !";
+                    $error = "Adresse email déjà utilisée !";
                 }
             } else {
-                $error = "Votre adresse mail n'est pas valide !";
+                $error = "Adresse adresse email non valide !";
             }
         } else {
             $error = "Identifiant déjà utilisé !";
         }   
     } else {
-        $error = "Votre pseudo ne doit pas dépasser 255 caractères !";
+        $error = "L'identifiant ne doit pas dépasser 255 caractères !";
     }      
     
 }
