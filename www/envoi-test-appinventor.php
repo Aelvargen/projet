@@ -55,7 +55,7 @@ if ($last_listening_status_on_record == 1){
 
     
         $date = date('Y-m-d H:i:s', time());
-
+        
         $distance = mysqli_real_escape_string($conn, $_GET['distance']);
         if($distance != ""){
             $list = array(
