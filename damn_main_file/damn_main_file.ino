@@ -1,5 +1,8 @@
 #include <SoftwareSerial.h>                    //introduire la librairie
 #include <Wire.h>                              //introduire la seconde librairie
+#include <string.h>
+
+
 
 
 
@@ -23,11 +26,8 @@ const int speedB  = 11;
 const int in2  = A2;
 const int in3  = A3;
 
-
 int distance_in_cm = 0;
-char cstr[16];
-char moove = "s";
-
+String moove = "";
 
 void setup(){                                  //définir la fonction setup
   Serial.println(F("Initialize System"));
@@ -43,11 +43,9 @@ void setup(){                                  //définir la fonction setup
 
 void loop(){
   distance_in_cm = 0.01723 * readUltrasonicDistance(A2, A2);
-  gofypd.write(itoa(distance_in_cm + moove, cstr, 10));
   Serial.print("Distance : ");
   Serial.print(distance_in_cm);
   Serial.println("cm");
-  Serial.print(distance_in_cm + moove);
   delay(1000); // Wait for 100 millisecond(s)
   
   digitalWrite(4, LOW);                        //met un niveau logique bas
@@ -59,6 +57,8 @@ void loop(){
 
   if(checkDistance(distance_in_cm)){dcStop();}
   else{mooveViaInstruction(symbole_transmis);}
+  String message_to_send = distance_in_cm + moove;
+  gofypd.print(message_to_send);
 }
 
 

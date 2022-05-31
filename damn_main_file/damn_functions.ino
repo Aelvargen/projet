@@ -55,21 +55,24 @@ void dcLeft() { // fonction pour tourner vers la gauche
 }
 
 void dcStop() { // fonction pour arrêter tout mouvement
-         Serial.print("stop");
-
+ Serial.print("stop");
  //// stop motors A and B
  digitalWrite(brakeA, HIGH);   //Engage the Brake for Channel A
  analogWrite(speedA, 0);
  digitalWrite(brakeB, HIGH);   //Engage the Brake for Channel B
  analogWrite(speedB, 0);
- moove = "none";
-
+ if (!checkDistance(distance_in_cm)){moove = "stop";}
+  
 }
 
 bool checkDistance(int distance){
-  if(distance <= 10){ moove = "stop"; return true;}
+  if(distance <= 10){
+    moove = "urgenceStop";
+    return true;
+    }
   else{return false;}
 };
+
 
 void mooveViaInstruction(char instruction){
   if (instruction == '1'){                             //si le message reçu est 1
